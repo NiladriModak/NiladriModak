@@ -5,6 +5,8 @@
 🌱 I’m currently learning *Full Stack Web Development*
   
 💬 Ask me about *MERN anything javascripty*
+
+🐴 Love to solve DSA and achieved Knight @Leetcode
   
 📫 How to reach me *niladrimodakk2001@gmail.com*
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=NiladriModak&label=Profile%20views&color=0e75b6&style=flat" alt="Niladri-Modak" /> </p>
