@@ -1,0 +1,200 @@
+import json
+import os
+import urllib.parse
+import urllib.request
+from collections import Counter
+from pathlib import Path
+
+
+GITHUB_API = "https://api.github.com"
+TOKEN = os.environ["GH_STATS_TOKEN"]
+USERNAME = os.environ["GITHUB_USERNAME"]
+
+OUTPUT = Path("profile/projects-by-language.svg")
+
+
+def github_get(url):
+    request = urllib.request.Request(
+        url,
+        headers={
+            "Accept": "application/vnd.github+json",
+            "Authorization": f"Bearer {TOKEN}",
+            "X-GitHub-Api-Version": "2026-03-10",
+            "User-Agent": "github-profile-stats",
+        },
+    )
+
+    with urllib.request.urlopen(request) as response:
+        return json.loads(response.read().decode("utf-8"))
+
+
+def get_repositories():
+    repositories = []
+    page = 1
+
+    while True:
+        params = urllib.parse.urlencode({
+            "visibility": "all",
+            "affiliation": "owner",
+            "per_page": 100,
+            "page": page,
+        })
+
+        url = f"{GITHUB_API}/user/repos?{params}"
+        data = github_get(url)
+
+        if not data:
+            break
+
+        repositories.extend(data)
+
+        if len(data) < 100:
+            break
+
+        page += 1
+
+    return repositories
+
+
+def get_primary_languages(repositories):
+    languages = Counter()
+
+    for repo in repositories:
+
+        # Do not count forks as your own projects
+        if repo.get("fork"):
+            continue
+
+        primary_language = repo.get("language")
+
+        # Ignore repositories where GitHub cannot determine a language
+        if not primary_language:
+            continue
+
+        languages[primary_language] += 1
+
+    return languages
+
+
+def escape_svg_text(text):
+    return (
+        str(text)
+        .replace("&", "&amp;")
+        .replace("<", "&lt;")
+        .replace(">", "&gt;")
+        .replace('"', "&quot;")
+    )
+
+
+def generate_svg(language_counts):
+    total_projects = sum(language_counts.values())
+
+    if total_projects == 0:
+        raise RuntimeError("No projects with a primary language were found.")
+
+    # Show maximum 6 languages.
+    # Everything else is grouped into "Other".
+    top_languages = language_counts.most_common(6)
+
+    remaining = total_projects - sum(
+        count for _, count in top_languages
+    )
+
+    if remaining > 0:
+        top_languages.append(("Other", remaining))
+
+    width = 700
+    row_height = 55
+    header_height = 90
+    height = header_height + row_height * len(top_languages) + 45
+
+    svg = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" '
+        f'width="{width}" height="{height}" viewBox="0 0 {width} {height}">',
+        '<rect width="100%" height="100%" rx="12" fill="#ffffff"/>',
+
+        '<text x="35" y="42" '
+        'font-family="Arial, Helvetica, sans-serif" '
+        'font-size="25" font-weight="700" fill="#2678e8">'
+        'Projects by Primary Language'
+        '</text>',
+    ]
+
+    y = header_height
+
+    for language, count in top_languages:
+        percentage = count / total_projects * 100
+
+        label = escape_svg_text(language)
+
+        svg.append(
+            f'<text x="35" y="{y}" '
+            'font-family="Arial, Helvetica, sans-serif" '
+            'font-size="15" fill="#4b5563">'
+            f'{label}</text>'
+        )
+
+        bar_x = 190
+        bar_width = 350
+        bar_height = 10
+
+        svg.append(
+            f'<rect x="{bar_x}" y="{y - 12}" '
+            f'width="{bar_width}" height="{bar_height}" '
+            'rx="5" fill="#dedede"/>'
+        )
+
+        filled_width = bar_width * percentage / 100
+
+        svg.append(
+            f'<rect x="{bar_x}" y="{y - 12}" '
+            f'width="{filled_width:.2f}" height="{bar_height}" '
+            'rx="5" fill="#2678e8"/>'
+        )
+
+        svg.append(
+            f'<text x="570" y="{y}" '
+            'font-family="Arial, Helvetica, sans-serif" '
+            'font-size="14" fill="#4b5563">'
+            f'{percentage:.1f}%</text>'
+        )
+
+        y += row_height
+
+    svg.append(
+        f'<text x="35" y="{height - 20}" '
+        'font-family="Arial, Helvetica, sans-serif" '
+        'font-size="13" fill="#6b7280">'
+        f'Based on {total_projects} projects'
+        '</text>'
+    )
+
+    svg.append("</svg>")
+
+    return "\n".join(svg)
+
+
+def main():
+    repositories = get_repositories()
+
+    language_counts = get_primary_languages(repositories)
+
+    svg = generate_svg(language_counts)
+
+    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    OUTPUT.write_text(svg, encoding="utf-8")
+
+    print(f"Found {len(repositories)} repositories.")
+    print("Project language distribution:")
+
+    total = sum(language_counts.values())
+
+    for language, count in language_counts.most_common():
+        percentage = count / total * 100
+        print(f"{language}: {count} projects ({percentage:.1f}%)")
+
+    print(f"\nGenerated: {OUTPUT}")
+
+
+if __name__ == "__main__":
+    main()
