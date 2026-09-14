@@ -56,6 +56,12 @@ jobs:
         run: |
           python scripts/generate_project_languages.py
 
+          echo "Checking generated file..."
+          test -s profile/projects-by-language.svg
+
+          echo "Generated successfully:"
+          ls -lh profile/projects-by-language.svg
+
       # -------------------------
       # GitHub Streak
       # -------------------------
