@@ -292,10 +292,10 @@ Worked as an **Assistant System Engineer** at Nexucon for 6 months.
   />
 </p>
 
-<p align="left">
+<p align="center">
   <img
-    src="./profile/top-langs.svg"
-    alt="Top Programming Languages"
+    src="./profile/projects-by-language.svg"
+    alt="Projects by Primary Language"
   />
 </p>
 
