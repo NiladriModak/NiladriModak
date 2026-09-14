@@ -292,10 +292,11 @@ Worked as an **Assistant System Engineer** at Nexucon for 6 months.
   />
 </p>
 
-<p align="center">
+<p align="left">
   <img
     src="./profile/projects-by-language.svg"
     alt="Projects by Primary Language"
+    width="500"
   />
 </p>
 
