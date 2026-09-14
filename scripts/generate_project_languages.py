@@ -101,10 +101,10 @@ def generate_svg(counts, total_projects):
 
     languages = counts.most_common(8)
 
-    width = 700
-    row_height = 52
-    header_height = 90
-    footer_height = 45
+    width = 550
+    row_height = 38
+    header_height = 65
+    footer_height = 30
 
     height = (
         header_height
@@ -128,7 +128,7 @@ def generate_svg(counts, total_projects):
     svg.append(
         '<text x="35" y="42" '
         'font-family="Arial, Helvetica, sans-serif" '
-        'font-size="25" '
+        'font-size="21" '
         'font-weight="700" '
         'fill="#2678e8">'
         'Projects by Primary Language'
@@ -144,15 +144,15 @@ def generate_svg(counts, total_projects):
         svg.append(
             f'<text x="35" y="{y}" '
             'font-family="Arial, Helvetica, sans-serif" '
-            'font-size="15" '
+            'font-size="13" '
             'fill="#4b5563">'
             f'{escape(language)}'
             '</text>'
         )
 
-        bar_x = 200
-        bar_width = 330
-        bar_height = 10
+        bar_x = 150
+        bar_width = 260
+        bar_height = 8
 
         svg.append(
             f'<rect x="{bar_x}" y="{y - 12}" '
@@ -173,7 +173,7 @@ def generate_svg(counts, total_projects):
         svg.append(
             f'<text x="560" y="{y}" '
             'font-family="Arial, Helvetica, sans-serif" '
-            'font-size="14" '
+            'font-size="12" '
             'fill="#4b5563">'
             f'{percentage:.1f}%'
             '</text>'
