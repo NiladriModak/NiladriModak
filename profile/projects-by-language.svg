@@ -3,33 +3,33 @@
 <text x="35" y="42" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#2678e8">Projects by Primary Language</text>
 <text x="35" y="65" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#4b5563">JavaScript</text>
 <rect x="150" y="53" width="260" height="8" rx="5" fill="#dedede"/>
-<rect x="150" y="53" width="200.42" height="8" rx="5" fill="#2678e8"/>
-<text x="560" y="65" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#4b5563">77.1%</text>
+<rect x="150" y="53" width="196.33" height="8" rx="5" fill="#2678e8"/>
+<text x="560" y="65" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#4b5563">75.5%</text>
 <text x="625" y="65" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#6b7280">(37)</text>
 <text x="35" y="103" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#4b5563">Java</text>
 <rect x="150" y="91" width="260" height="8" rx="5" fill="#dedede"/>
-<rect x="150" y="91" width="37.92" height="8" rx="5" fill="#2678e8"/>
-<text x="560" y="103" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#4b5563">14.6%</text>
-<text x="625" y="103" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#6b7280">(7)</text>
+<rect x="150" y="91" width="42.45" height="8" rx="5" fill="#2678e8"/>
+<text x="560" y="103" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#4b5563">16.3%</text>
+<text x="625" y="103" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#6b7280">(8)</text>
 <text x="35" y="141" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#4b5563">C++</text>
 <rect x="150" y="129" width="260" height="8" rx="5" fill="#dedede"/>
-<rect x="150" y="129" width="5.42" height="8" rx="5" fill="#2678e8"/>
-<text x="560" y="141" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#4b5563">2.1%</text>
+<rect x="150" y="129" width="5.31" height="8" rx="5" fill="#2678e8"/>
+<text x="560" y="141" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#4b5563">2.0%</text>
 <text x="625" y="141" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#6b7280">(1)</text>
 <text x="35" y="179" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#4b5563">CSS</text>
 <rect x="150" y="167" width="260" height="8" rx="5" fill="#dedede"/>
-<rect x="150" y="167" width="5.42" height="8" rx="5" fill="#2678e8"/>
-<text x="560" y="179" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#4b5563">2.1%</text>
+<rect x="150" y="167" width="5.31" height="8" rx="5" fill="#2678e8"/>
+<text x="560" y="179" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#4b5563">2.0%</text>
 <text x="625" y="179" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#6b7280">(1)</text>
 <text x="35" y="217" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#4b5563">Jupyter Notebook</text>
 <rect x="150" y="205" width="260" height="8" rx="5" fill="#dedede"/>
-<rect x="150" y="205" width="5.42" height="8" rx="5" fill="#2678e8"/>
-<text x="560" y="217" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#4b5563">2.1%</text>
+<rect x="150" y="205" width="5.31" height="8" rx="5" fill="#2678e8"/>
+<text x="560" y="217" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#4b5563">2.0%</text>
 <text x="625" y="217" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#6b7280">(1)</text>
 <text x="35" y="255" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#4b5563">Python</text>
 <rect x="150" y="243" width="260" height="8" rx="5" fill="#dedede"/>
-<rect x="150" y="243" width="5.42" height="8" rx="5" fill="#2678e8"/>
-<text x="560" y="255" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#4b5563">2.1%</text>
+<rect x="150" y="243" width="5.31" height="8" rx="5" fill="#2678e8"/>
+<text x="560" y="255" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#4b5563">2.0%</text>
 <text x="625" y="255" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#6b7280">(1)</text>
-<text x="35" y="303" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#6b7280">Based on 48 projects</text>
+<text x="35" y="303" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#6b7280">Based on 49 projects</text>
 </svg>
